@@ -1,9 +1,6 @@
 package study.jpashop.domain
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 class OrderItem {
@@ -13,8 +10,9 @@ class OrderItem {
     @Column(name = "ORDER_ITEM_ID")
     var id : Long? = null
 
-    @Column(name = "ORDER_ID")
-    var orderId : Long
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORDER_ID")
+    var orderId : Order
 
     @Column(name = "ITEM_ID")
     var itemId : Long
@@ -22,7 +20,7 @@ class OrderItem {
     var orderPrice : Int
     var count : Int
 
-    constructor(orderId : Long, itemId : Long, orderPrice: Int, count : Int){
+    constructor(orderId : Order, itemId : Long, orderPrice: Int, count : Int){
         this.orderId = orderId
         this.itemId = itemId
         this.orderPrice = orderPrice

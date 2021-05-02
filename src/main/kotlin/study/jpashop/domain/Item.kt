@@ -1,9 +1,6 @@
 package study.jpashop.domain
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 class Item {
@@ -16,6 +13,8 @@ class Item {
     var name : String
 
     var price : Int
+    @ManyToMany(mappedBy = "items")
+    var categories : MutableList<Category> = mutableListOf()
 
     constructor(name : String, price : Int){
         this.name = name

@@ -8,6 +8,8 @@
 		<class>study.jpashop.domain.Item</class>
 		<class>study.jpashop.domain.Order</class>
 		<class>study.jpashop.domain.OrderItem</class>
+		<class>study.jpashop.domain.Delivery</class>
+		<class>study.jpashop.domain.Category</class>
 		<properties>
 			<!--  필수 속성  -->
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
