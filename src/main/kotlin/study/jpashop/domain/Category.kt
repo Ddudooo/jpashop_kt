@@ -10,7 +10,7 @@ class Category :BaseEntity{
 
     var name : String
 
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "PARENT_ID")
     var parent : Category
 
@@ -19,8 +19,8 @@ class Category :BaseEntity{
 
     @ManyToMany
     @JoinTable(name = "CATEGROY_ITEM",
-        joinColumns = arrayOf(JoinColumn(name = "CATEGORY_ID")),
-        inverseJoinColumns = arrayOf(JoinColumn(name = "ITEAM_ID"))
+        joinColumns = [JoinColumn(name = "CATEGORY_ID")],
+        inverseJoinColumns = [JoinColumn(name = "ITEAM_ID")]
     )
     var items : MutableList<Item> = mutableListOf()
 

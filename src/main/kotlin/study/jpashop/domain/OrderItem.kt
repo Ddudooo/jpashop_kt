@@ -12,17 +12,18 @@ class OrderItem :BaseEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ORDER_ID")
-    var orderId : Order
+    var order : Order
 
-    @Column(name = "ITEM_ID")
-    var itemId : Long
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ITEM_ID")
+    var item : Item
 
     var orderPrice : Int
     var count : Int
 
-    constructor(orderId : Order, itemId : Long, orderPrice: Int, count : Int){
-        this.orderId = orderId
-        this.itemId = itemId
+    constructor(order : Order, item : Item, orderPrice: Int, count : Int){
+        this.order = order
+        this.item = item
         this.orderPrice = orderPrice
         this.count = count
     }

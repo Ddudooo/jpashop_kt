@@ -1,9 +1,6 @@
 package study.jpashop.domain
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 class Member :BaseEntity {
@@ -20,6 +17,9 @@ class Member :BaseEntity {
     var street : String
 
     var zipcode : String
+
+    @OneToMany(mappedBy = "member")
+    var orders : MutableList<Order> = mutableListOf()
 
     constructor(name : String , city: String, street: String, zipcode: String) {
         this.name = name

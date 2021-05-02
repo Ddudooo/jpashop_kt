@@ -11,14 +11,15 @@ class Order :BaseEntity{
     @Column(name = "ORDER_ID")
     var id : Long? = null
 
-    @Column(name = "MEMBER_ID")
-    var memberId : Long
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="MEMBER_ID")
+    var member : Member? = null
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     @JoinColumn(name = "DELIVERY_ID")
     var delivery: Delivery
 
-    @OneToMany(mappedBy = "orderId")
+    @OneToMany(mappedBy = "order", cascade = [CascadeType.ALL])
     var orderItems : MutableList<OrderItem> = mutableListOf()
 
     var orderDate : LocalDateTime
@@ -26,8 +27,8 @@ class Order :BaseEntity{
     @Enumerated(EnumType.STRING)
     var status : OrderStatus
 
-    constructor(memberId : Long, delivery: Delivery , orderDate : LocalDateTime, status: OrderStatus){
-        this.memberId = memberId
+    constructor(member : Member, delivery: Delivery , orderDate : LocalDateTime, status: OrderStatus){
+        this.member = member
         this.delivery = delivery
         this.orderDate = orderDate
         this.status = status

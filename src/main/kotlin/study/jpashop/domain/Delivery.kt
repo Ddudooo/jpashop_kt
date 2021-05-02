@@ -1,9 +1,6 @@
 package study.jpashop.domain
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.OneToOne
+import javax.persistence.*
 
 @Entity
 class Delivery :BaseEntity {
@@ -19,7 +16,7 @@ class Delivery :BaseEntity {
 
     var Delivery : DeliveryStatus
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     var order : Order
 
     constructor(city: String, street: String, zipcode: String, Delivery: DeliveryStatus, order: Order) {
