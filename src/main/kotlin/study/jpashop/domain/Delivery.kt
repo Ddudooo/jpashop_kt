@@ -6,7 +6,7 @@ import javax.persistence.Id
 import javax.persistence.OneToOne
 
 @Entity
-class Delivery {
+class Delivery :BaseEntity {
     @Id
     @GeneratedValue
     var id : Long? = null

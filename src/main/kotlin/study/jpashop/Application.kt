@@ -1,5 +1,6 @@
 package study.jpashop
 
+import study.jpashop.domain.Book
 import study.jpashop.domain.Order
 import javax.persistence.EntityManager
 import javax.persistence.EntityManagerFactory
@@ -12,7 +13,8 @@ fun main(){
     val tx = em.transaction
     tx.begin()
     try {
-        //val find : Order? = em.find(Order::class.java, 1L)
+        var book : Book = Book("작가", "ISBN", "JPA", 10000)
+        em.persist(book)
 
         tx.commit()
     } catch (e: Exception){

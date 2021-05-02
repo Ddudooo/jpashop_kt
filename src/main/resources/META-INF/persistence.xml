@@ -10,12 +10,15 @@
 		<class>study.jpashop.domain.OrderItem</class>
 		<class>study.jpashop.domain.Delivery</class>
 		<class>study.jpashop.domain.Category</class>
+		<class>study.jpashop.domain.Album</class>
+		<class>study.jpashop.domain.Book</class>
+		<class>study.jpashop.domain.Movie</class>
 		<properties>
 			<!--  필수 속성  -->
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
 			<property name="javax.persistence.jdbc.user" value="sa"/>
 			<property name="javax.persistence.jdbc.password" value=""/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpashop"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
 
 			<!--  옵션  -->

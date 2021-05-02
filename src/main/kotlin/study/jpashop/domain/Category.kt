@@ -3,7 +3,7 @@ package study.jpashop.domain
 import javax.persistence.*
 
 @Entity
-class Category {
+class Category :BaseEntity{
     @Id
     @GeneratedValue
     var id : Long? = null

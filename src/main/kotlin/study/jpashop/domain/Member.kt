@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-class Member {
+class Member :BaseEntity {
 
     @Id
     @GeneratedValue

@@ -3,7 +3,9 @@ package study.jpashop.domain
 import javax.persistence.*
 
 @Entity
-class Item {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
+abstract class Item : BaseEntity{
 
     @Id
     @GeneratedValue

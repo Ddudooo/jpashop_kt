@@ -3,7 +3,7 @@ package study.jpashop.domain
 import javax.persistence.*
 
 @Entity
-class OrderItem {
+class OrderItem :BaseEntity{
 
     @Id
     @GeneratedValue
